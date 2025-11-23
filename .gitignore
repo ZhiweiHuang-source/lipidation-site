@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# R
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# ImageJ/Fiji
+*.ijm.bak
+
+# Data files (commonly large)
+*.fasta
+*.fastq
+*.bam
+*.sam
+*.vcf
+*.bed
+
+# Outputs
+results/
+output/
+*.log
+*.out
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
