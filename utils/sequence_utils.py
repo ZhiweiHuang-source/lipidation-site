@@ -135,7 +135,7 @@ def calculate_hydrophobicity(sequence, scale='kyte_doolittle'):
         
     Example:
         >>> calculate_hydrophobicity('MGKKSKCC')
-        -0.5
+        -0.75
     """
     # Kyte-Doolittle hydrophobicity scale
     kyte_doolittle = {
@@ -166,8 +166,8 @@ def find_sequence_motif(sequence, motif_regex):
         list: List of (start_position, matched_sequence) tuples
         
     Example:
-        >>> find_sequence_motif('MGKKCKKSKCC', 'C..C')
-        [(4, 'CKKS'), (7, 'KSCC')]
+        >>> find_sequence_motif('MGCKKCKDE', 'C..C')
+        [(2, 'CKKC')]
     """
     import re
     matches = []

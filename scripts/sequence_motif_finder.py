@@ -10,7 +10,12 @@ This is an example template. Modify it for your specific analysis needs.
 
 import argparse
 import re
+import sys
 from pathlib import Path
+
+# Add parent directory to path to import utils
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.sequence_utils import parse_fasta as parse_fasta_util
 
 
 def find_n_myristoylation_sites(sequence):
@@ -109,37 +114,6 @@ def analyze_sequence(seq_id, sequence):
     return results
 
 
-def parse_fasta(fasta_file):
-    """
-    Simple FASTA parser.
-    
-    Args:
-        fasta_file (str): Path to FASTA file
-        
-    Returns:
-        dict: Dictionary of seq_id: sequence
-    """
-    sequences = {}
-    current_id = None
-    current_seq = []
-    
-    with open(fasta_file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if line.startswith('>'):
-                if current_id:
-                    sequences[current_id] = ''.join(current_seq)
-                current_id = line[1:].split()[0]
-                current_seq = []
-            else:
-                current_seq.append(line)
-        
-        if current_id:
-            sequences[current_id] = ''.join(current_seq)
-    
-    return sequences
-
-
 def main():
     parser = argparse.ArgumentParser(
         description='Find potential lipidation sites in protein sequences'
@@ -159,7 +133,7 @@ def main():
     
     # Parse input sequences
     print(f"Reading sequences from {args.input}...")
-    sequences = parse_fasta(args.input)
+    sequences = parse_fasta_util(args.input)
     print(f"Found {len(sequences)} sequences")
     
     # Analyze sequences
