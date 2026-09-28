@@ -1,7 +1,0 @@
-title: K partition (Fiji macro)
-description: Compute K1/K2 from two-channel OME-TIFFs with robust masks and QA
-theme: minima
-show_downloads: true
-markdown: kramdown
-plugins:
-  - jekyll-seo-tag
